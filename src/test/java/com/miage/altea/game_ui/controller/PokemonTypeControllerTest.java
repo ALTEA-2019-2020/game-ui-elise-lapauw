@@ -2,7 +2,9 @@ package com.miage.altea.game_ui.controller;
 
 import com.miage.altea.game_ui.pokemonTypes.bo.PokemonType;
 import com.miage.altea.game_ui.pokemonTypes.services.PokemonTypeService;
+import org.junit.Before;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -12,6 +14,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class PokemonTypeControllerTest {
+    @Before
+    public void before() {
+        Mockito.reset(/*mocked objects to reset*/);
+        // mock them here or in individual tests
+    }
     @Test
     void controllerShouldBeAnnotated(){
         assertNotNull(PokemonTypeController.class.getAnnotation(Controller.class));
@@ -41,6 +48,4 @@ class PokemonTypeControllerTest {
         assertNotNull(getMapping);
         assertArrayEquals(new String[]{"/pokedex"}, getMapping.value());
     }
-
-
 }

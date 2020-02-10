@@ -1,6 +1,8 @@
 package com.miage.altea.game_ui.pokemonTypes.services;
 
 import com.miage.altea.game_ui.pokemonTypes.bo.PokemonType;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -13,15 +15,16 @@ public class PokemonTypeServiceImpl implements PokemonTypeService {
     RestTemplate restTemplate;
 
     public List<PokemonType> listPokemonsTypes() {
-        /*PokemonType[] types = restTemplate.getForObject(pokemonServiceUrl + "/pokemon-types/", PokemonType[].class);
-        return types != null ? Arrays.asList(types) : new ArrayList<>();*/
-        return Arrays.asList(restTemplate.getForObject(this.pokemonServiceUrl+"/pokemon-types/", PokemonType[].class));
+        PokemonType[] p = restTemplate.getForObject(pokemonServiceUrl + "/pokemon-types/", PokemonType[].class);
+            return p != null ? List.of(p) : new ArrayList<PokemonType>() ;
     }
 
+    @Autowired
     public void setRestTemplate(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
+    @Value("${pokemonType.service.url}")
     public void setPokemonTypeServiceUrl(String pokemonServiceUrl) {
         this.pokemonServiceUrl = pokemonServiceUrl;
     }
