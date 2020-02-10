@@ -13,8 +13,9 @@ public class PokemonTypeServiceImpl implements PokemonTypeService {
     RestTemplate restTemplate;
 
     public List<PokemonType> listPokemonsTypes() {
-        PokemonType[] types = restTemplate.getForObject(pokemonServiceUrl + "/pokemon-types/", PokemonType[].class);
-        return types != null ? Arrays.asList(types) : new ArrayList<>();
+        /*PokemonType[] types = restTemplate.getForObject(pokemonServiceUrl + "/pokemon-types/", PokemonType[].class);
+        return types != null ? Arrays.asList(types) : new ArrayList<>();*/
+        return Arrays.asList(restTemplate.getForObject(this.pokemonServiceUrl+"/pokemon-types/", PokemonType[].class));
     }
 
     public void setRestTemplate(RestTemplate restTemplate) {
