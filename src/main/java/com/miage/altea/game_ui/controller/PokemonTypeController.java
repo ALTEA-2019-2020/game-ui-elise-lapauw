@@ -10,7 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class PokemonTypeController {
 
-    @Autowired
     PokemonTypeService pokemonTypeService;
 
 
@@ -21,6 +20,7 @@ public class PokemonTypeController {
         return modelAndView;
     }
 
+    @Autowired
     public void setPokemonTypeService(PokemonTypeService pokemonTypeService) {
         this.pokemonTypeService = pokemonTypeService;
     }
