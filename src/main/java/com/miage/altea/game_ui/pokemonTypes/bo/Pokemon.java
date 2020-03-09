@@ -4,8 +4,8 @@ public class Pokemon {
 
 
     private int pokemonTypeId;
-
     private int level;
+    private PokemonType pokemonType;
 
     public Pokemon() {
     }
@@ -13,6 +13,14 @@ public class Pokemon {
     public Pokemon(int pokemonTypeId, int level) {
         this.pokemonTypeId = pokemonTypeId;
         this.level = level;
+    }
+
+    public PokemonType getPokemonType() {
+        return pokemonType;
+    }
+
+    public void setPokemonType(PokemonType pokemonType) {
+        this.pokemonType = pokemonType;
     }
 
     public int getPokemonTypeId() {

@@ -1,5 +1,6 @@
 package com.miage.altea.game_ui.pokemonTypes.services;
 
+import com.miage.altea.game_ui.pokemonTypes.bo.Pokemon;
 import com.miage.altea.game_ui.pokemonTypes.bo.PokemonType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -32,5 +33,9 @@ public class PokemonTypeServiceImpl implements PokemonTypeService {
     @Value("${pokemonType.service.url}")
     public void setPokemonTypeServiceUrl(String pokemonServiceUrl) {
         this.pokemonServiceUrl = pokemonServiceUrl;
+    }
+
+    public PokemonType convertPokemon(Pokemon pokemon) {
+        return this.getPokemon(pokemon.getPokemonTypeId());
     }
 }

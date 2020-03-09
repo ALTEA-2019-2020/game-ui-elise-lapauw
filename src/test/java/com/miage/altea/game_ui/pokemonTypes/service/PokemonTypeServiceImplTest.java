@@ -34,7 +34,6 @@ class PokemonTypeServiceImplTest {
 
         var expectedUrl = "http://localhost:8080/pokemon-types";
         when(restTemplate.getForObject(expectedUrl, PokemonType[].class)).thenReturn(new PokemonType[]{pikachu});
-
         var pokemons = pokemonServiceImpl.listPokemonsTypes();
 
         assertNotNull(pokemons);
