@@ -4,6 +4,7 @@ import com.miage.altea.game_ui.pokemonTypes.bo.Pokemon;
 import com.miage.altea.game_ui.pokemonTypes.bo.PokemonType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -21,8 +22,9 @@ public class PokemonTypeServiceImpl implements PokemonTypeService {
     }
 
     @Override
+    @Cacheable("pokemon-types")
     public PokemonType getPokemon(int id) {
-        return restTemplate.getForObject(pokemonServiceUrl + "/pokemon-types/"+id, PokemonType.class);
+        return restTemplate.getForObject(pokemonServiceUrl + "/pokemon-types/{id}", PokemonType.class, id);
     }
 
     @Autowired
