@@ -26,8 +26,8 @@ public class TrainerServiceImpl implements TrainerService {
     }
 
     @Value("${trainer.service.url}")
-    void setTrainerApiUrl(String pokemonServiceUrl) {
-        this.trainerApiUrl = pokemonServiceUrl;
+    void setTrainerApiUrl(String trainerApiUrl) {
+        this.trainerApiUrl = trainerApiUrl;
     }
 
     @Override

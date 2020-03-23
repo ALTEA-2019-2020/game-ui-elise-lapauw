@@ -55,10 +55,7 @@ public class TrainerController {
 
     private ModelAndView getModelAndView(ModelAndView modelAndView, String currentUser) {
         Trainer trainer = trainerService.getTrainer(currentUser);
-        /*var pokemonTeam = new ArrayList<PokemonDTO>();
-        for(Pokemon p: trainer.getTeam()) {
-            pokemonTeam.add(new PokemonDTO(pokemonTypeService.getPokemon(p.getPokemonTypeId()), p.getLevel()));
-        }*/
+        // Cache ? sinon map
         var pokemonTeam = trainer.getTeam()
                 .stream()
                 .map((Pokemon p) ->
