@@ -33,7 +33,7 @@ public class TrainerServiceImpl implements TrainerService {
     @Override
     public List<Trainer> getAllTrainers() {
         return Arrays.asList(Objects.requireNonNull
-                (restTemplate.getForObject(trainerApiUrl + "/trainers/", Trainer[].class)));
+                (restTemplate.getForObject(trainerApiUrl + "/trainers", Trainer[].class)));
     }
 
     @Override

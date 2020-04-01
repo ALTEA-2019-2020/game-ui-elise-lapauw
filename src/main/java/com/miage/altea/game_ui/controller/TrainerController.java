@@ -27,7 +27,7 @@ public class TrainerController {
         this.pokemonTypeService = pokemonTypeService;
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     ModelAndView getAllTrainers(){
         var modelAndView = new ModelAndView("trainers");
         var currentUser = SecurityContextHolder.getContext().getAuthentication().getName();
