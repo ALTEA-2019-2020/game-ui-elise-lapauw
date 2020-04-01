@@ -10,7 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.*;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
@@ -55,7 +55,6 @@ public class TrainerController {
 
     private ModelAndView getModelAndView(ModelAndView modelAndView, String currentUser) {
         Trainer trainer = trainerService.getTrainer(currentUser);
-        // Cache ? sinon map
         var pokemonTeam = trainer.getTeam()
                 .stream()
                 .map((Pokemon p) ->
