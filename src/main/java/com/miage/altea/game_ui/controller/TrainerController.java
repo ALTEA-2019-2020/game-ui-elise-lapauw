@@ -10,6 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -64,17 +65,5 @@ public class TrainerController {
         modelAndView.addObject("team", pokemonTeam);
         return modelAndView;
     }
-   /* @PutMapping()
-    Trainer updateTrainer(@RequestBody Trainer trainer) {
-        return this.trainerService.createTrainer(trainer);
-    }
-    @PostMapping()
-    Trainer newTrainer(@RequestBody Trainer trainer) {
-        return this.trainerService.createTrainer(trainer);
-    }
-    @DeleteMapping(value="/{name}")
-    void deleteTrainer(@PathVariable String name) {
-        this.trainerService.deleteTrainer(name);
-    }*/
 
 }

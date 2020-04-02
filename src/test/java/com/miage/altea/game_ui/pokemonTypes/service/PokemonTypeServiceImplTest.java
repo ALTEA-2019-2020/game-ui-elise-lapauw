@@ -62,7 +62,7 @@ class PokemonTypeServiceImplTest {
         assertEquals("Pikachu", ((PokemonType)cachedValue).getName());
     }
 
-    /*
+
     @Test
     void listPokemonsTypes_shouldCallTheRemoteService() {
         var url = "http://localhost:8080";
@@ -104,6 +104,5 @@ class PokemonTypeServiceImplTest {
         assertNotNull(valueAnnotation);
         assertEquals("${pokemonType.service.url}", valueAnnotation.value());
     }
-    */
 
 }
